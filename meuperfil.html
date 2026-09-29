@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="meuperfil.css">
+</head>
+<body>
+
+    <main class="perfil-container">
+
+        <h1>Meu perfil</h1>
+        <p class="subtitulo">Atualize sua foto e seus dados cadastrais</p>
+
+        <!-- Foto do perfil -->
+        <div class="foto-container">
+            <div class="foto">
+                <span>AM</span>
+            </div>
+
+            <label for="foto-input" class="alterar-foto">
+                Alterar foto
+            </label>
+            <input type="file" id="foto-input" accept="image/png, image/jpeg">
+        </div>
+
+        <!-- Barra Lateral-->
+         <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">F</div>
+            <div>
+                <h2>SGA</h2>
+                <span>Docente</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="menu.html" class="active">
+                <span class="nav-icon">●</span>
+                Minhas turmas
+            </a>
+
+            <a href="meuperfil.html">
+                <span class="nav-icon">●</span>
+                Meu perfil
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">●</span>
+                Sair
+            </a>
+        </nav>
+
+        <div class="professor">
+            <div class="profile-icon">P</div>
+            <div>
+                <strong>Prof. Ana Menezes</strong>
+                <span>Professor(a)</span>
+            </div>
+        </div>
+    </aside>
+
+        <!-- Formulário -->
+        <form class="form-perfil">
+
+            <div class="campo">
+                <label for="nome">Nome completo:</label>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Digite seu nome"
+                    value="Ana Paula Menezes"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail institucional:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Digite seu e-mail"
+                    value="professor@maisunifacisa.com.br"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="disciplina">Disciplina principal:</label>
+                <input
+                    type="text"
+                    id="disciplina"
+                    name="disciplina"
+                    placeholder="Digite sua disciplina"
+                    value="Engenharia de Software"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn-salvar">
+                Salvar
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

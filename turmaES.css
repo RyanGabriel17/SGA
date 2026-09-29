@@ -1,0 +1,449 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menu lateral */
+.sidebar {
+    width: 252px;
+    min-height: 100vh;
+    background: #2851a5 ;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 13px 20px;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 14px;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f6ff;
+    color: #102e60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo h2 {
+    font-size: 22px;
+}
+
+.logo span {
+    font-size: 13px;
+    color: #c5d5ec;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #dce8fa;
+    padding: 14px 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    background: #1b477f;
+}
+
+.sidebar nav a.active {
+    background: #1474d9;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #3185ed;
+}
+
+.nav-icon {
+    font-size: 16px;
+    color: #e5f0ff;
+}
+
+/* Perfil do professor */
+.professor {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 9px;
+}
+
+.profile-icon {
+    width: 36px;
+    height: 36px;
+    background: #f1f6ff;
+    color: #102e60;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.professor strong {
+    display: block;
+    font-size: 13px;
+}
+
+.professor span {
+    display: block;
+    color: #c5d5ec;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Conteúdo com degradê */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    background: linear-gradient(
+        110deg,
+        #00a99d 0%,
+        #0879a7 35%,
+        #2851a5 65%,
+        #6124a5 100%
+    );
+    color: white;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    background: rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header h1 {
+    font-size: 26px;
+    margin-bottom: 4px;
+}
+
+.header p {
+    font-size: 14px;
+    color: #e1eafa;
+}
+
+.user-icon {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #b7d9ff;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Área da tabela */
+.content {
+    padding: 22px 32px;
+}
+
+/* Link de voltar */
+.voltar {
+    display: inline-block;
+    margin-bottom: 18px;
+    text-decoration: none;
+    color: #e6f3ff;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    color: white;
+    transform: translateX(-3px);
+}
+
+/* Caixa da tabela */
+.tabela-container {
+    width: 100%;
+    min-height: 590px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Rolagem horizontal em telas menores */
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    min-width: 920px;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    color: #263548;
+    font-size: 13px;
+}
+
+thead th {
+    padding: 14px 10px;
+    text-align: left;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid #dce5ef;
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 12px 10px;
+    height: 65px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Linhas alternadas */
+tbody tr:nth-child(odd) {
+    background: #e7f2fc;
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+tbody tr td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+tbody tr td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background: #d5eaff;
+}
+
+/* Nome dos alunos */
+.nome {
+    font-weight: bold;
+    color: #27384b;
+}
+
+/* Campos de notas */
+td input {
+    width: 42px;
+    height: 36px;
+    text-align: center;
+    border: 1px solid #d9e1e9;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #263548;
+    font-size: 12px;
+    outline: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+td input:focus {
+    border-color: #2485df;
+    box-shadow: 0 0 0 2px rgba(36, 133, 223, 0.15);
+}
+
+/* Média */
+.media {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Status dos alunos */
+.status {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 34px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.aprovado {
+    background: #159b60;
+}
+
+.reprovado {
+    background: #df3346;
+}
+
+.final {
+    background: #eea000;
+}
+
+/* Link de edição */
+td a {
+    color: #2478bd;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Paginação */
+.paginacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    color: #e5efff;
+    font-size: 13px;
+}
+
+.paginas {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.paginas button {
+    min-width: 32px;
+    height: 36px;
+    border: 1px solid #d8e5f2;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #41546b;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.paginas button:hover {
+    background: #d9ecff;
+}
+
+.paginas button.selecionada {
+    background: #1474d9;
+    color: white;
+    border-color: #1474d9;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .tabela-container {
+        min-height: 450px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar nav a {
+        flex: 1;
+        justify-content: center;
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .professor {
+        display: none;
+    }
+
+    .header {
+        padding: 18px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .content {
+        padding: 18px 12px;
+    }
+
+    .tabela-container {
+        min-height: 400px;
+        padding: 8px;
+    }
+
+    .paginacao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .paginas {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Estrutura principal */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menu lateral */
+.sidebar {
+    width: 264px;
+    min-height: 100vh;
+    background: #2851a5 ;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 13px 20px;
+    flex-shrink: 0;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 14px;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f6ff;
+    color: #102e60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo h2 {
+    font-size: 22px;
+}
+
+.logo span {
+    font-size: 13px;
+    color: #c5d5ec;
+}
+
+/* Links do menu */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #dce8fa;
+    padding: 14px 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    background: #1b477f;
+}
+
+.sidebar nav a.active {
+    background: #1474d9;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #3185ed;
+}
+
+.nav-icon {
+    font-size: 16px;
+    color: #e5f0ff;
+}
+
+/* Perfil do professor */
+.professor {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 9px;
+}
+
+.profile-icon {
+    width: 36px;
+    height: 36px;
+    background: #f1f6ff;
+    color: #102e60;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.professor strong {
+    display: block;
+    font-size: 13px;
+}
+
+.professor span {
+    display: block;
+    color: #c5d5ec;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Área principal com degradê */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 22px 34px;
+    background: linear-gradient(
+        110deg,
+        #00a99d 0%,
+        #0879a7 35%,
+        #2851a5 65%,
+        #6124a5 100%
+    );
+    color: white;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 58px;
+}
+
+.header h1 {
+    font-size: 27px;
+    margin-bottom: 4px;
+}
+
+.header p {
+    font-size: 14px;
+    color: #e1eafa;
+}
+
+.user-icon {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #b7d9ff;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Organização dos cartões */
+.turmas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Cartões */
+.card {
+    position: relative;
+    min-height: 212px;
+    padding: 30px 21px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s, background 0.3s;
+}
+
+/* Faixa colorida superior */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
+.turma-azul::before {
+    background: #0876ed;
+}
+
+.turma-verde::before {
+    background: #18a45c;
+}
+
+.turma-amarela::before {
+    background: #f2a400;
+}
+
+.turma-vermelha::before {
+    background: #e33b4b;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.17);
+}
+
+/* Ícone da disciplina */
+.card-icon {
+    width: 49px;
+    height: 49px;
+    border-radius: 11px;
+    background: #dcecff;
+    color: #17365f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Texto dos cartões */
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 13px;
+    color: #e0eafa;
+    margin-bottom: 8px;
+}
+
+/* Link abrir turma */
+.card a {
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    text-decoration: none;
+    color: #a9d9ff;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.card a:hover {
+    color: white;
+}
+
+/* Painel de dicas */
+.dica {
+    margin-top: 45px;
+    padding: 20px 34px;
+    min-height: 110px;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.dica h3 {
+    color: #a9d9ff;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.dica p {
+    color: #e5efff;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1100px) {
+    .turmas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .main-content {
+        padding: 22px;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar nav a {
+        flex: 1;
+        justify-content: center;
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .professor {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .turmas {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card {
+        min-height: 210px;
+    }
+
+    .dica {
+        margin-top: 25px;
+        padding: 20px;
+    }
+}

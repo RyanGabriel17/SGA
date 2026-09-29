@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* ou flex-start se quiser encostar na esquerda */
+    align-items: flex-start;
+    gap: 30px; /* Cria um espaço entre a sidebar e o formulário */
+    padding: 30px 20px;
+    background: linear-gradient(
+        110deg,
+        #00a99d 0%,
+        #0879a7 35%,
+        #2851a5 65%,
+        #6124a5 100%
+    );
+}
+
+.sidebar {
+    width: 264px;
+    height: 100vh;           
+    position: fixed;         
+    top: 0;
+    left: 0;
+    background: #2851a5 ;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 13px 20px;
+    z-index: 100;           
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 14px;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f6ff;
+    color: #102e60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo h2 {
+    font-size: 22px;
+}
+
+.logo span {
+    font-size: 13px;
+    color: #c5d5ec;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #dce8fa;
+    padding: 14px 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    background: #1b477f;
+}
+
+.sidebar nav a.active {
+    background: #1474d9;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #3185ed;
+}
+
+.nav-icon {
+    font-size: 16px;
+    color: #e5f0ff;
+}
+
+/* Perfil do professor */
+.professor {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 9px;
+}
+
+.profile-icon {
+    width: 36px;
+    height: 36px;
+    background: #f1f6ff;
+    color: #102e60;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.professor strong {
+    display: block;
+    font-size: 13px;
+}
+
+.professor span {
+    display: block;
+    color: #c5d5ec;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Container principal */
+.perfil-container {
+    width: 100%;
+    max-width: 440px;
+    color: #dce9f5;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e2eaf5;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 14px;
+    color: #b8cbdc;
+    margin-bottom: 28px;
+}
+
+/* Foto do perfil */
+.foto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #e5edf7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #173d72;
+    font-size: 30px;
+    font-weight: bold;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Botão alterar foto */
+.alterar-foto {
+    cursor: pointer;
+    color: #d9eaff;
+    font-size: 14px;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.alterar-foto:hover {
+    color: white;
+}
+
+#foto-input {
+    display: none;
+}
+
+/* Formulário */
+.form-perfil {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Campos */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo label {
+    font-size: 15px;
+    color: #c1d3e1;
+    padding-left: 9px;
+}
+
+/* Inputs arredondados */
+.campo input {
+    width: 100%;
+    height: 46px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 0 17px;
+    outline: none;
+    background: #e9e9e9;
+    color: #333;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.campo input::placeholder {
+    color: #999;
+}
+
+.campo input:focus {
+    border: 2px solid #46b9ef;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(63, 178, 238, 0.3);
+}
+
+/* Botão salvar */
+.btn-salvar {
+    width: 100%;
+    height: 48px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 25px;
+    background: #3199d7;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-salvar:hover {
+    background: #2386c5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-salvar:active {
+    transform: scale(0.98);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    body {
+        padding: 25px 20px;
+    }
+
+    .perfil-container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .subtitulo {
+        font-size: 13px;
+    }
+
+    .foto {
+        width: 85px;
+        height: 85px;
+        font-size: 26px;
+    }
+
+    .form-perfil {
+        gap: 17px;
+    }
+}
