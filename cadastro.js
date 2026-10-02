@@ -1,38 +1,48 @@
 const cadastro = document.getElementById("formCadastro");
 
 cadastro.addEventListener("submit", function(event) {
+
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const disciplina = document.getElementById("disciplina").value.trim();
-    const senha = document.getElementById("senha").value;
-    const confirmar = document.getElementById("confirmar").value;
+    const nome = document.getElementById("nome").value
+    const email = document.getElementById("email").value
+    const disciplina = document.getElementById("disciplina").value
+    const senha = document.getElementById("senha").value
+    const confirmarSenha = document.getElementById("confirmarSenha").value
 
-    if (!nome || !email || !disciplina || !senha || !confirmar) {
-        alert("Preencha todos os campos!");
+    const mensagem = document.getElementById("mensagem");
+
+    if (senha !== confirmarSenha) {
+        mensagem.textContent = "As senhas não são iguais.";
         return;
     }
 
-    if (senha !== confirmar) {
-        alert("As senhas não coincidem!");
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"));
+
+    const usuarioExistente = usuarios.find(usuario => usuario.email === email);
+
+    if (usuarioExistente) {
+        mensagem.textContent = "Este email já está cadastrado.";
         return;
     }
+    const novoUsuario = {
+        nome: nome,
+        email: email,
+        disciplina: disciplina,
+        senha: senha
+    };
 
-    let professores = JSON.parse(localStorage.getItem("db")) || [];
+    usuarios.push(novoUsuario);
 
-    const existe = professores.find(p => p.email === email);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    if (existe) {
-        alert("Este e-mail já está cadastrado!");
-        return;
-    }
+    localStorage.setItem("usuarioAtual", JSON.stringify(novoUsuario));
 
-    const usuario = { nome, email, disciplina, senha };
+    mensagem.textContent = "Cadastro realizado com sucesso!";
 
-    professores.push(usuario);
+    cadastro.reset();
 
-    localStorage.setItem("db", JSON.stringify(professores));
-
-    window.location.href = "menu.html";
+    setTimeout(function() {
+        window.location.href = "menu.html";
+    }, 1350);
 });

@@ -1,271 +1,194 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f3f6fa;
-    color: #152b4a;
-    min-height: 100vh;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f3f6fa;
+            color: #152b4a;
+            min-height: 100vh;
+        }
 
-.container {
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+        .container {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-/* Fundo com curvas */
-.fundo {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-    pointer-events: none;
-}
+        /* Fundo */
+        .fundo {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-.onda {
-    position: absolute;
-    border-radius: 50%;
-    transform: rotate(-20deg);
-}
+        .onda {
+            position: absolute;
+            border-radius: 50%;
+            transform: rotate(-20deg);
+        }
 
-.onda1 {
-    background-color: #0d3265;
-    width: 160vw;
-    height: 150vh;
-    left: -20vw;
-    bottom: -100vh;
-}
+        .onda1 {
+            background-color: #0d3265;
+            width: 160vw;
+            height: 150vh;
+            left: -20vw;
+            bottom: -100vh;
+        }
 
-.onda2 {
-    background-color: #16477f;
-    width: 115vw;
-    height: 115vh;
-    left: 20vw;
-    bottom: -105vh;
-}
+        .onda2 {
+            background-color: #16477f;
+            width: 115vw;
+            height: 115vh;
+            left: 20vw;
+            bottom: -105vh;
+        }
 
-/* Logo */
-.logo {
-    position: absolute;
-    top: 10%;
-    left: 6%;
-    z-index: 2;
-}
+        /* Conteúdo */
+        .conteudo {
+            position: relative;
+            z-index: 2;
+            width: 545px;
+            padding: 45px 55px;
+            background-color: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 30px rgba(20, 45, 80, 0.10);
+        }
 
-.logo h1 {
-    font-size: 78px;
-    font-weight: bold;
-    color: #12366b;
-    line-height: 1;
-    letter-spacing: -3px;
-}
+        h1 {
+            font-size: 32px;
+            color: #12366b;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
 
-.logo span {
-    display: block;
-    width: 67px;
-    height: 7px;
-    background-color: #1762a6;
-    margin: 12px 0;
-}
+        .linha {
+            width: 67px;
+            height: 7px;
+            background-color: #1762a6;
+            margin-bottom: 30px;
+        }
 
-.logo p {
-    font-size: 20px;
-    color: #536071;
-    line-height: 1.5;
-    letter-spacing: 2px;
-}
+        form {
+            width: 100%;
+        }
 
-/* Cartão de login */
-.login {
-    position: relative;
-    z-index: 2;
-    width: 545px;
-    padding: 52px 55px;
-    background-color: #ffffff;
-    border-radius: 25px;
-    box-shadow: 0 5px 30px rgba(20, 45, 80, 0.06);
-    margin-top: 30px;
-}
+        label {
+            display: block;
+            font-size: 17px;
+            color: #26374d;
+            margin-bottom: 8px;
+        }
 
-.login h2 {
-    font-size: 34px;
-    color: #12366b;
-    margin-bottom: 12px;
-}
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            height: 52px;
+            border: 1px solid #d5dce5;
+            border-radius: 8px;
+            background-color: #f5f6f9;
+            padding: 0 12px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            margin-bottom: 25px;
+        }
 
-.linha {
-    width: 67px;
-    height: 7px;
-    background-color: #1762a6;
-    margin-bottom: 28px;
-}
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #1762a6;
+            box-shadow: 0 0 0 3px rgba(23, 98, 166, 0.12);
+        }
 
-/* Campos */
-.campo {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 28px;
-}
+        button {
+            width: 100%;
+            height: 61px;
+            background-color: #124985;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
 
-.campo label {
-    font-size: 18px;
-    color: #26374d;
-    margin-bottom: 8px;
-}
+        button:hover {
+            background-color: #0d3265;
+        }
 
-.campo input {
-    width: 100%;
-    height: 52px;
-    border: 1px solid #d5dce5;
-    border-radius: 8px;
-    background-color: #f5f6f9;
-    padding: 0 12px;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
-}
+        .cadastro {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 16px;
+            color: #536071;
+        }
 
-.campo input:focus {
-    border-color: #1762a6;
-    box-shadow: 0 0 0 3px rgba(23, 98, 166, 0.12);
-}
+        .cadastro a {
+            color: #1762a6;
+            text-decoration: underline;
+            font-weight: bold;
+        }
 
-/* Lembrar-me */
-.lembrar {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    margin-top: -3px;
-    margin-bottom: 29px;
-}
+        .cadastro a:hover {
+            color: #0d3265;
+        }
 
-.lembrar input {
-    width: 20px;
-    height: 20px;
-    accent-color: #14508d;
-    cursor: pointer;
-}
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 20px;
+            }
 
-.lembrar label {
-    font-size: 17px;
-    color: #354256;
-    cursor: pointer;
-}
+            .conteudo {
+                width: 100%;
+                max-width: 480px;
+                padding: 35px 28px;
+                border-radius: 20px;
+            }
 
-/* Botão */
-button {
-    width: 100%;
-    height: 61px;
-    background-color: #124985;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
+            h1 {
+                font-size: 27px;
+            }
 
-button:hover {
-    background-color: #0d3265;
-}
+            label {
+                font-size: 16px;
+            }
 
-/* Esqueceu a senha */
-.esqueceu {
-    text-align: center;
-    margin-top: 32px;
-    font-size: 17px;
-    color: #536071;
-}
+            .onda1 {
+                width: 200vw;
+                height: 100vh;
+                left: -45vw;
+                bottom: -75vh;
+            }
 
-.esqueceu a {
-    color: #1762a6;
-    text-decoration: underline;
-    font-weight: 500;
-}
+            .onda2 {
+                width: 150vw;
+                height: 80vh;
+                left: 15vw;
+                bottom: -75vh;
+            }
+        }
 
-.esqueceu a:hover {
-    color: #0d3265;
-}
+        @media (max-width: 380px) {
+            .conteudo {
+                padding: 28px 20px;
+            }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        justify-content: center;
-        padding: 30px 20px;
-        gap: 30px;
-    }
+            h1 {
+                font-size: 24px;
+            }
 
-    .logo {
-        position: relative;
-        top: auto;
-        left: auto;
-        align-self: flex-start;
-        margin-left: 5%;
-    }
-
-    .logo h1 {
-        font-size: 55px;
-    }
-
-    .logo p {
-        font-size: 15px;
-    }
-
-    .login {
-        width: 100%;
-        max-width: 480px;
-        padding: 35px 28px;
-        margin-top: 0;
-        border-radius: 20px;
-    }
-
-    .login h2 {
-        font-size: 27px;
-    }
-
-    .campo label {
-        font-size: 16px;
-    }
-
-    .esqueceu {
-        font-size: 14px;
-    }
-
-    .onda1 {
-        width: 200vw;
-        height: 100vh;
-        left: -45vw;
-        bottom: -75vh;
-    }
-
-    .onda2 {
-        width: 150vw;
-        height: 80vh;
-        left: 15vw;
-        bottom: -75vh;
-    }
-}
-
-@media (max-width: 380px) {
-    .login {
-        padding: 28px 20px;
-    }
-
-    .login h2 {
-        font-size: 24px;
-    }
-
-    .esqueceu {
-        font-size: 13px;
-    }
-}
+            .cadastro {
+                font-size: 14px;
+            }
+        }

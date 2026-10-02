@@ -1,47 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f7fb">
-  <title>SGA | Minhas turmas</title>
-  <link rel="stylesheet" href="menu.css">
-  <script src="js/dados.js" defer></script>
-  <script src="js/home.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas turmas - SGA</title>
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="side-brand" href="home.html"><span class="brand-mark">s.</span><span>nexo<small>ACADÊMICO</small></span></a>
-      <div class="side-label">ESPAÇO DOCENTE</div>
-      <nav class="side-nav">
-        <a class="nav-link active" href="home.html"><span class="nav-icon">▦</span>Minhas turmas</a>
-        <a class="nav-link" href="perfil.html"><span class="nav-icon">◉</span>Meu perfil</a>
-        <button class="nav-link logout-link" id="logoutButton"><span class="nav-icon">↪️</span>Sair</button>
-      </nav>
-      <div class="sidebar-bottom"><div class="sidebar-avatar" id="sideAvatar">AM</div><div class="sidebar-user"><b id="sideName">Ana Menezes</b><span>Docente</span></div><button class="dots-button" aria-label="Abrir perfil" onclick="location.href='perfil.html'">···</button></div>
-    </aside>
-    <main class="main-area">
-      <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button><div class="breadcrumb">Área docente <span>/</span> <b id="breadcrumbCurrent">Minhas turmas</b></div><div class="top-actions"><span class="term-pill"><i></i> Período 2026.1</span><a href="perfil.html" class="top-avatar" id="topAvatar">AM</a></div></header>
-      <section class="page-content">
-        <div class="welcome-row"><div><span class="eyebrow" id="todayLabel">PAINEL DO DOCENTE</span><h1 id="pageTitle">Olá, Ana <span class="wave">✳️</span></h1><p id="pageSubtitle">Acompanhe suas disciplinas e o progresso dos estudantes.</p></div><div class="welcome-meta"><span class="meta-label">VISÃO GERAL</span><b id="courseCount">04 disciplinas</b><span id="studentCount">112 estudantes vinculados</span></div></div>
-        <div class="stats-grid">
-          <article class="stat-card"><div class="stat-top"><span>Turmas ativas</span><span class="stat-icon blue">▦</span></div><strong id="statCourses">04</strong><small><span class="stat-accent">●</span> No período atual</small></article>
-          <article class="stat-card"><div class="stat-top"><span>Estudantes</span><span class="stat-icon violet">♙</span></div><strong id="statStudents">112</strong><small>Distribuídos nas suas turmas</small></article>
-          <article class="stat-card"><div class="stat-top"><span>Média geral</span><span class="stat-icon amber">⌁</span></div><strong id="statAverage">7,4</strong><small>Considerando notas lançadas</small></article>
-        </div>
-        <div class="section-heading"><div><span class="eyebrow">SEU ENSINO</span><h2>Minhas turmas</h2><p>Selecione uma disciplina para consultar e atualizar as notas.</p></div><div class="search-box"><span>⌕</span><input id="courseSearch" type="search" placeholder="Buscar disciplina..." aria-label="Buscar disciplina"></div></div>
-        <div class="course-grid" id="courseGrid"></div>
-        <section class="grade-section" id="gradeSection" hidden>
-          <div class="grade-heading"><div><button class="back-courses" id="backCourses">← Todas as turmas</button><span class="eyebrow">DIÁRIO DE CLASSE</span><h2 id="gradeTitle">Disciplina</h2><p id="gradeDescription">Notas e situação dos estudantes matriculados.</p></div><div class="grade-actions"><button class="secondary-button" id="exportButton">↓ Exportar CSV</button></div></div>
-          <div class="grade-summary" id="gradeSummary"></div>
-          <div class="table-card"><div class="table-scroll"><table><thead><tr><th>Matrícula</th><th>Nome completo</th><th>Prova 1</th><th>Prova 2</th><th>Projeto F1</th><th>Projeto F2</th><th>Média</th><th>Status</th><th>Nota final</th><th></th></tr></thead><tbody id="gradeBody"></tbody></table></div><div class="table-bottom"><span id="paginationInfo">Exibindo alunos</span><div class="pagination" id="pagination"></div></div></div>
-          <p class="table-hint"><span>ⓘ</span> Edite as notas de 0 a 10 e salve a linha. Média e status são atualizados automaticamente.</p>
-        </section>
-      </section>
-      <footer class="main-footer"><span>© 2026 Nexo Acadêmico</span><span>SGA <b>·</b> Área do docente</span></footer>
-    </main>
-  </div>
-  <div class="toast" id="toast" role="status"></div>
+
+    <div class="container">
+
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">F</div>
+                <div>
+                    <h2>SGA</h2>
+                    <span>Docente</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#" class="active">
+                    <span class="nav-icon">●</span>
+                    Minhas turmas
+                </a>
+
+                <a href="meuperfil.html">
+                    <span class="nav-icon">●</span>
+                    Meu perfil
+                </a>
+
+                <a href="index.html">
+                    <span class="nav-icon">●</span>
+                    Sair
+                </a>
+            </nav>
+
+            <div class="professor">
+                <div class="profile-icon"></div>
+                <div>
+                    <strong id="nomeUsuario"></strong>
+                    <br><span>Professor(a)</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+
+            <header class="header">
+                <div>
+                    <h1>Minhas turmas</h1>
+                    <p>Selecione uma turma para ver o diário de notas</p>
+                </div>
+
+            </header>
+
+            <!-- Cartões das disciplinas -->
+            <section class="turmas">
+
+                <div class="card turma-azul">
+                    <div class="card-icon">E</div>
+                    <h3>Engenharia de Software</h3>
+                    <p>ADS 2026.1</p>
+                    <p>38 alunos</p>
+                    <a href="turmaES.html">Abrir turma &nbsp; &gt;</a>
+                </div>
+
+            </section>
+
+            <!-- Painel de dicas -->
+            <section class="dica">
+                <h3>Dica</h3>
+                <p>
+                    Clique em um cartão de turma para abrir, no corpo
+                    desta mesma página, a tabela de alunos e notas
+                    daquela turma.
+                </p>
+            </section>
+
+            <script src="menu.js"></script>
+
+        </main>
+    </div>
+
 </body>
+
 </html>

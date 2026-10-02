@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro do Professor - SGA</title>
+    <title>Cadastro - Sistema de Gestão Acadêmica</title>
     <link rel="stylesheet" href="cadastro.css">
 </head>
+
 <body>
 
-    <main class="container">
+    <div class="background-shape"></div>
 
-        <div class="circulo esquerda"></div>
-        <div class="circulo direita"></div>
+    <div class="card-container">
+        <h1>Sistema de Gestão<br>Acadêmica</h1>
+        <div class="divider"></div>
+        <h2>Cadastre-se</h2>
 
-        <section class="cadastro">
-            <h1>Criar conta do professor</h1>
+        <form id="formCadastro">
+            <div class="input-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" placeholder="Digite seu Nome Completo" required>
+            </div>
 
-            <form id="formCadastro">
+            <div class="input-group">
+                <label for="email">Email Institucional:</label>
+                <input type="email" id="email" placeholder="Digite seu Email" required>
+            </div>
 
-                <label for="nome">Nome completo</label>
-                <input type="text" id="nome"
-                       placeholder="Seu nome completo" required>
-
-                <label for="email">E-mail institucional</label>
-                <input type="email" id="email"
-                       placeholder="seuemail@instituicao.edu.br" required>
-
-                <label for="disciplina">Disciplina principal</label>
+            <div class="input-group">
+                <label for="disciplina">Disciplina:</label>
                 <input type="text" id="disciplina" placeholder="Disciplina principal" required>
+            </div>
 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha"
-                       placeholder="Digite sua senha" required>
+            <div class="input-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" placeholder="Digite sua Senha" required>
+            </div>
 
-                <label for="confirmar">Confirmar senha</label>
-                <input type="password" id="confirmar"
-                       placeholder="Confirme sua senha" required>
+            <div class="input-group">
+                <label for="confirmarSenha">Confirmar Senha:</label>
+                <input type="password" id="confirmarSenha" placeholder="Confirme sua Senha" required>
+            </div>
 
-                <p id="mensagem"></p>
+            <button type="submit">Cadastrar</button>
 
-                <button type="submit">Cadastrar</button>
+            <p id="mensagem"></p>
 
-            </form>
-        </section>
-
-    </main>
+            <p class="login-link">
+                Já tem uma conta? <a href="index.html">Faça Login</a>
+            </p>
+        </form>
+    </div>
 
     <script src="cadastro.js"></script>
+
 </body>
 </html>

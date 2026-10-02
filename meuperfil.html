@@ -1,105 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
+
+    <title>Meu perfil - SGA</title>
+
     <link rel="stylesheet" href="meuperfil.css">
 </head>
+
 <body>
 
-    <main class="perfil-container">
+    <div class="container">
 
-        <h1>Meu perfil</h1>
-        <p class="subtitulo">Atualize sua foto e seus dados cadastrais</p>
+        <!-- =========================
+             MENU LATERAL
+        ========================== -->
 
-        <!-- Foto do perfil -->
-        <div class="foto-container">
-            <div class="foto">
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">F</div>
+
+                <div>
+                    <h2>SGA</h2>
+                    <span>Docente</span>
+                </div>
+
             </div>
 
-            <label for="foto-input" class="alterar-foto">
-                Alterar foto
-            </label>
-            <input type="file" id="foto-input" accept="image/png, image/jpeg">
-        </div>
+            <nav>
 
-        <!-- Barra Lateral-->
-         <aside class="sidebar">
-        <div class="logo">
-            <div class="logo-icon">F</div>
-            <div>
-                <h2>SGA</h2>
-                <span>Docente</span>
-            </div>
-        </div>
+                <a href="menu.html">
+                    <span class="nav-icon">●</span>
+                    Minhas turmas
+                </a>
 
-        <nav>
-            <a href="menu.html" class="active">
-                <span class="nav-icon">●</span>
-                Minhas turmas
-            </a>
+                <a href="meuperfil.html" class="active">
+                    <span class="nav-icon">●</span>
+                    Meu perfil
+                </a>
 
-            <a href="meuperfil.html">
-                <span class="nav-icon">●</span>
-                Meu perfil
-            </a>
+                <a href="index.html">
+                    <span class="nav-icon">●</span>
+                    Sair
+                </a>
 
-            <a href="#">
-                <span class="nav-icon">●</span>
-                Sair
-            </a>
-        </nav>
+            </nav>
 
-        <div class="professor">
-            <div class="profile-icon">P</div>
-            <div>
-                <strong>Prof. Ana Menezes</strong>
-                <span>Professor(a)</span>
-            </div>
-        </div>
-    </aside>
+            <!-- Usuário -->
+            <div class="professor">
 
-        <!-- Formulário -->
-        <form class="form-perfil">
+                <div class="profile-icon" id="foto-lateral">
+                    <span>P</span>
+                </div>
 
-            <div class="campo">
-                <label for="nome">Nome completo:</label>
-                <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    required
-                >
+                <div>
+                    <strong id="nomeLateral">Professor</strong>
+                    <span>Professor(a)</span>
+                </div>
+
             </div>
 
-            <div class="campo">
-                <label for="email">E-mail institucional:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                >
-            </div>
+        </aside>
 
-            <div class="campo">
-                <label for="disciplina">Disciplina principal:</label>
-                <input
-                    type="text"
-                    id="disciplina"
-                    name="disciplina"
-                    required
-                >
-            </div>
 
-            <button type="submit" class="btn-salvar">
-                Salvar
-            </button>
+        <!-- =========================
+             CONTEÚDO
+        ========================== -->
 
-        </form>
+        <main class="main-content">
 
-    </main>
+            <header class="header">
+
+                <div>
+                    <h1>Meu perfil</h1>
+
+                    <p>
+                        Atualize sua foto e seus dados cadastrais
+                    </p>
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 CARD DO PERFIL
+            ========================== -->
+
+            <section class="perfil-card">
+
+                <!-- FOTO -->
+
+                <div class="foto-container">
+
+                    <div class="foto" id="foto-perfil">
+                        <span id="letraPerfil">P</span>
+                    </div>
+
+                    <label
+                        for="foto-input"
+                        class="alterar-foto">
+                        Alterar foto
+                    </label>
+
+                    <input
+                        type="file"
+                        id="foto-input"
+                        accept="image/png, image/jpeg"
+                    >
+
+                    <small>
+                        PNG ou JPG
+                    </small>
+
+                </div>
+
+
+                <!-- FORMULÁRIO -->
+
+                <form class="form-perfil">
+
+                    <div class="campo">
+
+                        <label for="nome">
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="email">
+                            E-mail institucional
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="disciplina">
+                            Disciplina principal
+                        </label>
+
+                        <input
+                            type="text"
+                            id="disciplina"
+                            name="disciplina"
+                            placeholder="Digite sua disciplina"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-salvar">
+
+                        Salvar alterações
+
+                    </button>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="meuperfil.js"></script>
 
 </body>
+
 </html>
