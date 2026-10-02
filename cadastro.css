@@ -4,136 +4,122 @@
     box-sizing: border-box;
 }
 
-/* Fundo da página */
 body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px 16px;
-    font-family: Arial, sans-serif;
+    background: #0d3478;
+    position: relative;
+    overflow: hidden;
+    padding: 25px;
+}
 
-    background: linear-gradient(
-        110deg,
-        #079b91,
-        #087d9b,
-        #394e89,
-        #59367c
-    );
+/* Círculos do fundo */
+.circulo {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #1555c9;
+}
+
+.esquerda {
+    left: -340px;
+    bottom: -280px;
+}
+
+.direita {
+    right: -350px;
+    top: -350px;
 }
 
 /* Formulário */
-form {
+.cadastro {
     width: 100%;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
+    max-width: 650px;
+    padding: 32px 40px;
+    background: white;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Título */
 h1 {
-    color: #d9e3ed;
-    font-size: 30px;
-    font-weight: normal;
     text-align: center;
-    margin-bottom: 30px;
+    color: #152e54;
+    font-size: 34px;
+    margin-bottom: 25px;
 }
 
-/* Textos dos campos */
 label {
-    color: #a5cbd0;
-    font-size: 20px;
-    margin: 0 0 2px 10px;
+    display: block;
+    color: #152e54;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 7px;
 }
 
-/* Remove as quebras de linha do HTML */
-form br {
-    display: none;
-}
-
-/* Campos de entrada */
-input {
+input, select {
     width: 100%;
-    height: 40px;
+    height: 48px;
     padding: 0 14px;
-    margin-bottom: 20px;
-
-    border: none;
-    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1.5px solid #aab2c0;
+    border-radius: 10px;
+    background: white;
+    font-size: 16px;
     outline: none;
-
-    background-color: #e5e5e5;
-    color: #333;
-    font-size: 13px;
-
-    transition: 0.3s;
 }
 
-/* Texto dentro dos campos */
-input::placeholder {
-    color: #999;
+input:focus, select:focus {
+    border-color: #1760bb;
 }
 
-/* Quando o campo estiver selecionado */
-input:focus {
-    background-color: #ffffff;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-/* Botão de cadastro */
+/* Botão */
 button {
     width: 100%;
-    height: 42px;
-    margin-top: 5px;
-
+    height: 58px;
+    background: #1050bd;
+    color: white;
     border: none;
-    border-radius: 25px;
-
-    background: #3299d5;
-    color: #e5edf5;
-
-    font-size: 18px;
+    border-radius: 10px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-/* Efeito do botão */
 button:hover {
-    background: #2384c2;
+    background: #0c3c91;
 }
 
-/* Texto de login */
-p {
-    margin-top: 22px;
+/* Mensagem */
+#mensagem {
     text-align: center;
-    color: #c5d5df;
-    font-size: 13px;
+    color: #c0392b;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-/* Link para login */
-p a {
-    color: #b7c9f6;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-p a:hover {
-    text-decoration: underline;
-}
-
-/* Adaptação para telas pequenas */
-@media (max-width: 400px) {
-    form {
-        max-width: 100%;
+/* Celular */
+@media (max-width: 600px) {
+    .cadastro {
+        padding: 28px 22px;
     }
 
     h1 {
-        font-size: 28px;
-        margin-bottom: 25px;
+        font-size: 26px;
     }
 
-    input {
-        margin-bottom: 17px;
+    label {
+        font-size: 15px;
+    }
+
+    input, select {
+        font-size: 14px;
     }
 }

@@ -3,36 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="/cadastro.css">
+    <title>Cadastro do Professor - SGA</title>
+    <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
 
-    <form>
+    <main class="container">
 
-        <div>
-        <h1>Cadastre-se</h1>
+        <div class="circulo esquerda"></div>
+        <div class="circulo direita"></div>
 
-        <label for="c1">Nome Completo:</label>
-        <input type="text" id="c1" placeholder="Nome completo">
+        <section class="cadastro">
+            <h1>Criar conta do professor</h1>
 
-        <br><br><label for="c2">Email:</label>
-        <input type="email" id="c2" placeholder="Email">
+            <form id="formCadastro">
 
-        <br><br><label for="c3">Disciplina:</label>
-        <input type="text" id="c3" placeholder="Disciplina principal">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome"
+                       placeholder="Seu nome completo" required>
 
-        <br><br><label for="c4">Senha:</label>
-        <input type="password" id="c4" placeholder="Senha">
+                <label for="email">E-mail institucional</label>
+                <input type="email" id="email"
+                       placeholder="seuemail@instituicao.edu.br" required>
 
-        <br><br><label for="c5">Confirmar Senha:</label>
-        <input type="password" id="c5" placeholder="Confirmar Senha">
+                <label for="disciplina">Disciplina principal</label>
+                <input type="text" id="disciplina" placeholder="Disciplina principal" required>
 
-        <button type="submit">Cadastrar</button>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha"
+                       placeholder="Digite sua senha" required>
 
-        <p>Já tem uma conta? <a href="/index.html">Faça Login</a></p>
-        </div>
-    </form>
-    
+                <label for="confirmar">Confirmar senha</label>
+                <input type="password" id="confirmar"
+                       placeholder="Confirme sua senha" required>
+
+                <p id="mensagem"></p>
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <script src="cadastro.js"></script>
 </body>
 </html>
