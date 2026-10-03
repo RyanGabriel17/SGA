@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas turmas - SGA</title>
     <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="sidebar-toggle.css">
 </head>
 <body>
 
     <div class="container">
 
         <!-- Menu lateral -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="logo">
-                <div class="logo-icon">F</div>
+                <div class="logo-icon">
+                    <img src="imagens/logo-faculdade.png" alt="Logo da faculdade">
+                </div>
                 <div>
                     <h2>SGA</h2>
                     <span>Docente</span>
@@ -21,24 +24,27 @@
             </div>
 
             <nav>
-                <a href="#" class="active">
-                    <span class="nav-icon">●</span>
-                    Minhas turmas
+                <a href="#" class="active" aria-label="Minhas turmas" title="Minhas turmas">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14M3 18V5a2 2 0 0 1 2-2h2a5 5 0 0 1 5 2 5 5 0 0 1 5-2h2a2 2 0 0 1 2 2v13h-4a5 5 0 0 0-5 3 5 5 0 0 0-5-3H3Z"/></svg>
+                    <span class="nav-label">Minhas turmas</span>
                 </a>
 
-                <a href="meuperfil.html">
-                    <span class="nav-icon">●</span>
-                    Meu perfil
+                <a href="meuperfil.html" aria-label="Meu perfil" title="Meu perfil">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    <span class="nav-label">Meu perfil</span>
                 </a>
 
-                <a href="index.html">
-                    <span class="nav-icon">●</span>
-                    Sair
+                <a href="index.html" aria-label="Sair" title="Sair">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg>
+                    <span class="nav-label">Sair</span>
                 </a>
             </nav>
-
+            <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Recolher menu" title="Recolher menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                <span class="toggle-label">Recolher menu</span>
+            </button>
             <div class="professor">
-                <div class="profile-icon"></div>
+                <div class="profile-icon" id="fotoMenu"></div>
                 <div>
                     <strong id="nomeUsuario"></strong>
                     <br><span>Professor(a)</span>
@@ -57,30 +63,19 @@
 
             </header>
 
-            <!-- Cartões das disciplinas -->
-            <section class="turmas">
-
-                <div class="card turma-azul">
-                    <div class="card-icon">E</div>
-                    <h3>Engenharia de Software</h3>
-                    <p>ADS 2026.1</p>
-                    <p>38 alunos</p>
-                    <a href="turmaES.html">Abrir turma &nbsp; &gt;</a>
-                </div>
-
-            </section>
+            <!-- Cartão da disciplina principal do usuário -->
+            <section class="turmas" id="listaTurmas" aria-label="Minha matéria"></section>
 
             <!-- Painel de dicas -->
             <section class="dica">
                 <h3>Dica</h3>
                 <p>
-                    Clique em um cartão de turma para abrir, no corpo
-                    desta mesma página, a tabela de alunos e notas
-                    daquela turma.
+                    Clique na matéria para abrir o diário.
                 </p>
             </section>
 
             <script src="menu.js"></script>
+            <script src="sidebar-toggle.js"></script>
 
         </main>
     </div>

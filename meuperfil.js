@@ -1,4 +1,4 @@
-const usuarioAtual = JSON.parse(
+let usuarioAtual = JSON.parse(
     localStorage.getItem("usuarioAtual")
 );
 
@@ -33,7 +33,18 @@ formPerfil.addEventListener("submit", function (evento) {
         return;
     }
 
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const emailAnterior = usuarioAtual?.email;
+
+    if (usuarios.some(usuario => usuario.email === email && usuario.email !== emailAnterior)) {
+        alert("Este email já está cadastrado.");
+        return;
+    }
+
+    const indice = usuarios.findIndex(usuario => usuario.email === emailAnterior);
     const dadosAtualizados = {
+        ...(indice !== -1 ? usuarios[indice] : {}),
+        ...usuarioAtual,
         nome: nome,
         email: email,
         disciplina: disciplina
@@ -44,6 +55,13 @@ formPerfil.addEventListener("submit", function (evento) {
         JSON.stringify(dadosAtualizados)
     );
 
+    if (indice !== -1) {
+        usuarios[indice] = dadosAtualizados;
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    }
+
+    usuarioAtual = dadosAtualizados;
+
     nomeLateral.textContent = nome;
 
     alert("Alterações salvas com sucesso!");
@@ -51,6 +69,7 @@ formPerfil.addEventListener("submit", function (evento) {
 
 const fotoInput = document.getElementById("foto-input");
 const fotoPerfil = document.getElementById("foto-perfil");
+const fotoLateral = document.getElementById("foto-lateral");
 const letraPerfil = document.getElementById("letraPerfil");
 
 const fotoSalva = localStorage.getItem("fotoPerfil");
@@ -58,6 +77,7 @@ const fotoSalva = localStorage.getItem("fotoPerfil");
 if (fotoSalva) {
 
     fotoPerfil.innerHTML = `<img src="${fotoSalva}" alt="Foto de perfil">`;
+    fotoLateral.innerHTML = `<img src="${fotoSalva}" alt="Foto de perfil">`;
 
 }
 
@@ -79,6 +99,7 @@ fotoInput.addEventListener("change", function () {
         const imagem = evento.target.result;
 
         fotoPerfil.innerHTML = `<img src="${imagem}" alt="Foto de perfil"> `;
+        fotoLateral.innerHTML = `<img src="${imagem}" alt="Foto de perfil">`;
 
         localStorage.setItem("fotoPerfil", imagem);
     };

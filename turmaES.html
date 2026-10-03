@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engenharia de Software - SGA</title>
     <link rel="stylesheet" href="turmaES.css">
+    <link rel="stylesheet" href="sidebar-toggle.css">
 </head>
 <body>
 
 <div class="container">
 
     <!-- Menu lateral -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <div class="logo">
-            <div class="logo-icon">F</div>
+            <div class="logo-icon">
+                <img src="imagens/logo-faculdade.png" alt="Logo da faculdade">
+            </div>
             <div>
                 <h2>SGA</h2>
                 <span>Docente</span>
@@ -21,26 +24,31 @@
         </div>
 
         <nav>
-            <a href="menu.html" class="active">
-                <span class="nav-icon">●</span>
-                Minhas turmas
+            <a href="menu.html" class="active" aria-label="Minhas turmas" title="Minhas turmas">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14M3 18V5a2 2 0 0 1 2-2h2a5 5 0 0 1 5 2 5 5 0 0 1 5-2h2a2 2 0 0 1 2 2v13h-4a5 5 0 0 0-5 3 5 5 0 0 0-5-3H3Z"/></svg>
+                <span class="nav-label">Minhas turmas</span>
             </a>
 
-            <a href="meuperfil.html">
-                <span class="nav-icon">●</span>
-                Meu perfil
+            <a href="meuperfil.html" aria-label="Meu perfil" title="Meu perfil">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                <span class="nav-label">Meu perfil</span>
             </a>
 
-            <a href="#">
-                <span class="nav-icon">●</span>
-                Sair
+            <a href="index.html" aria-label="Sair" title="Sair">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg>
+                <span class="nav-label">Sair</span>
             </a>
         </nav>
 
+        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Recolher menu" title="Recolher menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            <span class="toggle-label">Recolher menu</span>
+        </button>
+
         <div class="professor">
-            <div class="profile-icon">P</div>
+            <div class="profile-icon" id="fotoMenu"></div>
             <div>
-                <strong>Prof. Ana Menezes</strong>
+                <strong id="nomeUsuario">Professor</strong>
                 <span>Professor(a)</span>
             </div>
         </div>
@@ -52,11 +60,10 @@
         <!-- Cabeçalho -->
         <header class="header">
             <div>
-                <h1>Engenharia de Software</h1>
-                <p>ADS 2026.1 &nbsp; · &nbsp; 38 alunos matriculados</p>
+                <h1 id="nomeDisciplina">Engenharia de Software</h1>
+                <p id="resumoTurma">4 alunos de exemplo</p>
             </div>
 
-            <div class="user-icon">AM</div>
         </header>
 
         <div class="content">
@@ -81,7 +88,6 @@
                                 <th>Média</th>
                                 <th>Status</th>
                                 <th>Final</th>
-                                <th></th>
                             </tr>
                         </thead>
 
@@ -96,7 +102,6 @@
                                 <td class="media">8.1</td>
                                 <td><span class="status aprovado">APROVADO</span></td>
                                 <td>-</td>
-                                <td><a href="#">[lápis]</a></td>
                             </tr>
 
                             <tr>
@@ -109,7 +114,6 @@
                                 <td class="media">5.4</td>
                                 <td><span class="status reprovado">REPROVADO</span></td>
                                 <td>-</td>
-                                <td><a href="#">[lápis]</a></td>
                             </tr>
 
                             <tr>
@@ -120,9 +124,8 @@
                                 <td><input type="number" value="7.5" step="0.1"></td>
                                 <td><input type="number" value="6.0" step="0.1"></td>
                                 <td class="media">6.4</td>
-                                <td><span class="status final">FARA FINAL</span></td>
+                                <td><span class="status final">PROVA FINAL</span></td>
                                 <td>-</td>
-                                <td><a href="#">[lápis]</a></td>
                             </tr>
 
                             <tr>
@@ -135,57 +138,19 @@
                                 <td class="media">8.9</td>
                                 <td><span class="status aprovado">APROVADO</span></td>
                                 <td>-</td>
-                                <td><a href="#">[lápis]</a></td>
                             </tr>
 
-                            <tr>
-                                <td>2023104525</td>
-                                <td class="nome">Fernanda Melo Rocha</td>
-                                <td><input type="number" value="4.0" step="0.1"></td>
-                                <td><input type="number" value="3.5" step="0.1"></td>
-                                <td><input type="number" value="5.0" step="0.1"></td>
-                                <td><input type="number" value="4.5" step="0.1"></td>
-                                <td class="media">4.1</td>
-                                <td><span class="status reprovado">REPROVADO</span></td>
-                                <td>-</td>
-                                <td><a href="#">[lápis]</a></td>
-                            </tr>
-
-                            <tr>
-                                <td>2023104526</td>
-                                <td class="nome">Gustavo Pereira Dias</td>
-                                <td><input type="number" value="6.5" step="0.1"></td>
-                                <td><input type="number" value="6.0" step="0.1"></td>
-                                <td><input type="number" value="5.5" step="0.1"></td>
-                                <td><input type="number" value="5.0" step="0.1"></td>
-                                <td class="media">5.7</td>
-                                <td><span class="status final">FARA FINAL</span></td>
-                                <td>6.5</td>
-                                <td><a href="#">[lápis]</a></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- Paginação -->
-            <div class="paginacao">
-                <span>Mostrando 1-6 de 38 alunos</span>
-
-                <div class="paginas">
-                    <button>&lt;</button>
-                    <button class="selecionada">1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>...</button>
-                    <button>7</button>
-                    <button>&gt;</button>
-                </div>
-            </div>
-
         </div>
     </main>
 </div>
 
+<script src="menu.js"></script>
+<script src="turma.js"></script>
+<script src="sidebar-toggle.js"></script>
 </body>
 </html>

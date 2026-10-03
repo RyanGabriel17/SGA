@@ -1,0 +1,80 @@
+.sidebar,
+.main-content {
+    transition: width 0.25s ease, margin-left 0.25s ease;
+}
+
+.sidebar-toggle {
+    position: relative;
+    z-index: 2;
+    min-height: 42px;
+    margin-top: 18px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #c8d8eb;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+}
+
+.sidebar-toggle svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+body.sidebar-collapsed .sidebar {
+    width: 72px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+body.sidebar-collapsed .main-content {
+    width: calc(100% - 72px);
+    margin-left: 72px;
+}
+
+body.sidebar-collapsed .sidebar .logo {
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+body.sidebar-collapsed .sidebar .logo > div:last-child,
+body.sidebar-collapsed .sidebar .nav-label,
+body.sidebar-collapsed .sidebar .toggle-label,
+body.sidebar-collapsed .sidebar .professor > div:last-child {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebar nav a,
+body.sidebar-collapsed .sidebar .sidebar-toggle {
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+body.sidebar-collapsed .sidebar .sidebar-toggle svg {
+    transform: rotate(180deg);
+}
+
+body.sidebar-collapsed .sidebar .professor {
+    justify-content: center;
+    padding: 9px 0;
+}
+
+@media (max-width: 750px) {
+    .sidebar-toggle {
+        display: none;
+    }
+}

@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     min-height: 100vh;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #212529;
+    background: linear-gradient(135deg, #f7fbff 0%, #eef6fd 50%, #e7f2fc 100%);
 }
 
 .container {
@@ -16,39 +18,77 @@ body {
 
 /* Menu lateral */
 .sidebar {
-    width: 252px;
-    min-height: 100vh;
-    background: #2851a5 ;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 225px;
+    background: linear-gradient(180deg, #112D60 0%, #102a58 55%, #0d244d 100%);
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 28px 13px 20px;
-    flex-shrink: 0;
+    padding: 30px 18px 22px;
+    box-shadow: 8px 0 30px rgba(17, 45, 96, 0.14);
+    overflow: hidden;
+    z-index: 20;
+}
+
+.sidebar::before,
+.sidebar::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sidebar::before {
+    width: 230px;
+    height: 230px;
+    right: -130px;
+    top: -80px;
+    background: rgba(24, 111, 217, 0.20);
+}
+
+.sidebar::after {
+    width: 180px;
+    height: 180px;
+    left: -120px;
+    bottom: 80px;
+    background: rgba(39, 158, 91, 0.10);
 }
 
 .logo {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 0 14px;
-    margin-bottom: 40px;
+    gap: 13px;
+    padding: 4px 8px 35px;
+    z-index: 1;
 }
 
 .logo-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f1f6ff;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #ffffff;
     color: #102e60;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     font-size: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logo-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .logo h2 {
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .logo span {
@@ -57,58 +97,98 @@ body {
 }
 
 .sidebar nav {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 7px;
+    z-index: 2;
 }
 
 .sidebar nav a {
+    position: relative;
+    min-height: 50px;
     text-decoration: none;
-    color: #dce8fa;
-    padding: 14px 18px;
-    border-radius: 9px;
+    color: #c8d8eb;
+    padding: 0 16px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 14px;
-    font-size: 15px;
-    transition: 0.3s;
+    gap: 13px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 .sidebar nav a:hover {
-    background: #1b477f;
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(3px);
 }
 
 .sidebar nav a.active {
-    background: #1474d9;
+    background: #186FD9;
     color: white;
-    font-weight: bold;
-    border: 1px solid #3185ed;
+    box-shadow: 0 7px 18px rgba(24, 111, 217, 0.30);
+}
+
+.sidebar nav a.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 0 5px 5px 0;
+    background: white;
 }
 
 .nav-icon {
-    font-size: 16px;
-    color: #e5f0ff;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #8fb9e5;
+}
+
+.sidebar nav a.active .nav-icon {
+    color: white;
 }
 
 /* Perfil do professor */
 .professor {
+    position: relative;
     margin-top: auto;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 9px;
+    gap: 11px;
+    padding: 13px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 2;
 }
 
 .profile-icon {
-    width: 36px;
-    height: 36px;
-    background: #f1f6ff;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    background: #DFECFA;
     color: #102e60;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    overflow: hidden;
+}
+
+.profile-icon:empty::after {
+    content: "P";
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .professor strong {
@@ -125,55 +205,34 @@ body {
 
 /* Conteúdo com degradê */
 .main-content {
-    flex: 1;
+    width: calc(100% - 225px);
+    margin-left: 225px;
     min-width: 0;
     min-height: 100vh;
-    background: linear-gradient(
-        110deg,
-        #00a99d 0%,
-        #0879a7 35%,
-        #2851a5 65%,
-        #6124a5 100%
-    );
-    color: white;
 }
 
 /* Cabeçalho */
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 32px;
-    background: rgba(255, 255, 255, 0.10);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 45px 50px 10px;
 }
 
 .header h1 {
-    font-size: 26px;
-    margin-bottom: 4px;
+    color: #112D60;
+    font-size: 34px;
+    letter-spacing: -1px;
+    margin-bottom: 7px;
 }
 
 .header p {
     font-size: 14px;
-    color: #e1eafa;
-}
-
-.user-icon {
-    width: 44px;
-    height: 44px;
-    border: 2px solid #b7d9ff;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: bold;
+    color: #6C757D;
 }
 
 /* Área da tabela */
 .content {
-    padding: 22px 32px;
+    padding: 25px 50px 60px;
 }
 
 /* Link de voltar */
@@ -181,60 +240,72 @@ body {
     display: inline-block;
     margin-bottom: 18px;
     text-decoration: none;
-    color: #e6f3ff;
+    color: #186FD9;
     font-size: 14px;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .voltar:hover {
-    color: white;
+    color: #112D60;
     transform: translateX(-3px);
 }
 
 /* Caixa da tabela */
 .tabela-container {
     width: 100%;
-    min-height: 590px;
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #d9e8f5;
+    border-radius: 18px;
     padding: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(17, 45, 96, 0.07);
 }
 
 /* Rolagem horizontal em telas menores */
 .table-scroll {
     width: 100%;
     overflow-x: auto;
+    padding-bottom: 4px;
 }
 
 /* Tabela */
 table {
     width: 100%;
-    min-width: 920px;
+    min-width: 640px;
+    table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0 5px;
     color: #263548;
     font-size: 13px;
 }
 
+th:nth-child(1) { width: 12%; }
+th:nth-child(2) { width: 21%; }
+th:nth-child(n+3):nth-child(-n+6) { width: 8%; }
+th:nth-child(7) { width: 8%; }
+th:nth-child(8) { width: 17%; }
+th:nth-child(9) { width: 10%; }
+
 thead th {
-    padding: 14px 10px;
+    padding: 14px 5px;
     text-align: left;
     color: #64748b;
     font-size: 13px;
     font-weight: 600;
     border-bottom: 1px solid #dce5ef;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
 }
 
 tbody td {
-    padding: 12px 10px;
+    padding: 12px 5px;
     height: 65px;
     text-align: left;
     white-space: nowrap;
+}
+
+thead th:nth-child(n+3),
+tbody td:nth-child(n+3) {
+    text-align: center;
 }
 
 /* Linhas alternadas */
@@ -266,11 +337,12 @@ tbody tr:hover {
 .nome {
     font-weight: bold;
     color: #27384b;
+    white-space: normal;
 }
 
 /* Campos de notas */
 td input {
-    width: 42px;
+    width: 38px;
     height: 36px;
     text-align: center;
     border: 1px solid #d9e1e9;
@@ -280,6 +352,13 @@ td input {
     font-size: 12px;
     outline: none;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    appearance: textfield;
+}
+
+td input::-webkit-inner-spin-button,
+td input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 td input:focus {
@@ -299,13 +378,13 @@ td input:focus {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 125px;
+    width: 100%;
     height: 34px;
     border-radius: 20px;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: bold;
     color: white;
-    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .aprovado {
@@ -320,60 +399,10 @@ td input:focus {
     background: #eea000;
 }
 
-/* Link de edição */
-td a {
-    color: #2478bd;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 12px;
-}
-
-td a:hover {
-    text-decoration: underline;
-}
-
-/* Paginação */
-.paginacao {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 20px;
-    color: #e5efff;
-    font-size: 13px;
-}
-
-.paginas {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.paginas button {
-    min-width: 32px;
-    height: 36px;
-    border: 1px solid #d8e5f2;
-    border-radius: 7px;
-    background: rgba(255, 255, 255, 0.92);
-    color: #41546b;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.paginas button:hover {
-    background: #d9ecff;
-}
-
-.paginas button.selecionada {
-    background: #1474d9;
-    color: white;
-    border-color: #1474d9;
-}
-
 /* Tablets */
 @media (max-width: 1100px) {
-    .sidebar {
-        width: 220px;
+    .header {
+        padding: 40px 20px 10px;
     }
 
     .content {
@@ -381,20 +410,35 @@ td a:hover {
     }
 
     .tabela-container {
-        min-height: 450px;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    thead th {
+        font-size: 11px;
     }
 }
 
 /* Celulares */
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     .container {
-        flex-direction: column;
+        display: block;
     }
 
     .sidebar {
+        position: relative;
         width: 100%;
         min-height: auto;
+        height: auto;
         padding: 15px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
     }
 
     .logo {
@@ -418,7 +462,7 @@ td a:hover {
     }
 
     .header {
-        padding: 18px;
+        padding: 30px 12px 10px;
     }
 
     .header h1 {
@@ -434,16 +478,7 @@ td a:hover {
     }
 
     .tabela-container {
-        min-height: 400px;
         padding: 8px;
     }
 
-    .paginacao {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .paginas {
-        flex-wrap: wrap;
-    }
 }

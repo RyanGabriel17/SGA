@@ -17,7 +17,7 @@ cadastro.addEventListener("submit", function(event) {
         return;
     }
 
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"));
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     const usuarioExistente = usuarios.find(usuario => usuario.email === email);
 
